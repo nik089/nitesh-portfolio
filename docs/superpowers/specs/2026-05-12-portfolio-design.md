@@ -76,19 +76,19 @@ A premium, minimal-futuristic developer portfolio for "Nitesh Yadav (Nik)" — S
 ## 4. Features & Interactions
 
 ### Loading Screen
-- **Terminal typing**: "Nik" logo types in character by character with cursor blink
+- **Terminal typing**: "Nitesh" logo types in character by character with cursor blink
 - **Fade out**: Entire screen fades, reveals main site
 - **Duration**: ~2.5 seconds total
 
 ### Terminal Intro Animation (Hero)
 - Terminal window frame (dark with glow border)
-- Types: `> nik --init` → Enter → `> nik --status` → Enter → `> nik --ready`
+- Types: `> Nitesh --init` → Enter → `> Nitesh --status` → Enter → `> Nitesh --ready`
 - Each line reveals the hero content progressively
 - **Duration**: ~3 seconds
 
 ### Hero Section
 - Name with gradient text effect
-- "Nik" nickname badge (pill)
+- "Nitesh" nickname badge (pill)
 - Role: Senior Frontend Developer
 - Tagline quote
 - **3 CTA Buttons**: View Projects, Contact Me, Download Resume (glassmorphism style)
@@ -139,7 +139,7 @@ A premium, minimal-futuristic developer portfolio for "Nitesh Yadav (Nik)" — S
 - Form validation with error states
 
 ### Footer
-- "Designed & Developed by Nik"
+- "Designed & Developed by Nitesh"
 - Dynamic current year: `{new Date().getFullYear()}`
 - Social links with hover effects
 
