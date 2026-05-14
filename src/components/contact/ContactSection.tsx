@@ -2,249 +2,237 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send, Check, Download } from "lucide-react";
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  Check,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Send,
+} from "lucide-react";
+import { contact } from "@/lib/portfolio-content";
 
-const contactInfo = {
-  github: "github.com/nik089",
-  linkedin: "linkedin.com/in/niteshydv7",
-  email: "Nikyadav085@gmail.com",
-  location: "Noida, India",
-};
+const quickLinks = [
+  {
+    label: contact.email,
+    href: `mailto:${contact.email}`,
+    icon: Mail,
+  },
+  {
+    label: "WhatsApp",
+    href: `https://wa.me/919457181747`,
+    icon: MessageCircle,
+  },
+  {
+    label: contact.location,
+    href: undefined,
+    icon: MapPin,
+  },
+];
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: `https://${contact.github}`,
+    icon: Github,
+    color: "hover:text-[#f05032]",
+  },
+  {
+    label: "LinkedIn",
+    href: `https://${contact.linkedin}`,
+    icon: Linkedin,
+    color: "hover:text-[#0077b5]",
+  },
+];
 
 export default function ContactSection() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    window.setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormState({ name: "", email: "", message: "" });
-
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1500);
+      window.setTimeout(() => setIsSubmitted(false), 2800);
+    }, 1200);
   };
 
   return (
-    <section id="contact" className="py-32 px-6 relative">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+    <section id="contact" className="px-6 py-28">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 text-center">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+          <span className="section-tag">// Contact</span>
+          <h2 className="terminal-title mt-7 text-4xl font-semibold tracking-[-0.06em] text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
+            {contact.heading}
           </h2>
-          <p className="text-[#a1a1aa] max-w-2xl mx-auto">
-            Have a project in mind? Let&apos;s create something amazing together.
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
+            {contact.subheading}
           </p>
-          <div className="w-20 h-1 mx-auto mt-4 bg-gradient-to-r from-[#7c3aed] to-[#a855f7] rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div
-            className="glass rounded-2xl p-8"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm text-[#a1a1aa] mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={formState.name}
-                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl bg-[#0f0f14] border border-white/10 focus:border-[#7c3aed] outline-none transition-colors text-white placeholder:text-[#52525b]"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm text-[#a1a1aa] mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl bg-[#0f0f14] border border-white/10 focus:border-[#7c3aed] outline-none transition-colors text-white placeholder:text-[#52525b]"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm text-[#a1a1aa] mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-[#0f0f14] border border-white/10 focus:border-[#7c3aed] outline-none transition-colors text-white placeholder:text-[#52525b] resize-none"
-                  required
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-[#7c3aed] to-[#a855f7] text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed glow"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isSubmitting ? (
-                  <>
-                    <span className="animate-spin">⏳</span>
-                    Sending...
-                  </>
-                ) : isSubmitted ? (
-                  <>
-                    <Check className="w-5 h-5" />
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="glass rounded-2xl p-8 h-full">
-              <h3 className="text-2xl font-semibold mb-6">Contact Info</h3>
-
-              <div className="space-y-6">
-                <ContactItem
-                  icon={<Mail className="w-5 h-5" />}
-                  label="Email"
-                  value={contactInfo.email}
-                  href={`mailto:${contactInfo.email}`}
-                />
-                <ContactItem
-                  icon={<FaGithub className="w-5 h-5" />}
-                  label="GitHub"
-                  value={contactInfo.github}
-                  href={`https://${contactInfo.github}`}
-                />
-                <ContactItem
-                  icon={<FaLinkedin className="w-5 h-5" />}
-                  label="LinkedIn"
-                  value={contactInfo.linkedin}
-                  href={`https://${contactInfo.linkedin}`}
-                />
-                <ContactItem
-                  icon={<FaMapMarkerAlt className="w-5 h-5" />}
-                  label="Location"
-                  value={contactInfo.location}
-                />
-                <motion.a
-                  href="/resume.pdf"
-                  download
-                  className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-[#7c3aed]/20 to-[#a855f7]/20 border border-[#7c3aed]/30 hover:border-[#7c3aed]/60 transition-all"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="p-3 rounded-lg bg-[#7c3aed]/30 text-[#a855f7]">
-                    <Download className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-[#52525b] block">Download</span>
-                    <span className="text-white font-medium">Resume</span>
-                  </div>
-                </motion.a>
-              </div>
-            </div>
-
-            {/* Availability Badge */}
-            <motion.div
-              className="glass rounded-2xl p-6 flex items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <div className="relative">
-                <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                </div>
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">Available for Projects</h4>
-                <p className="text-sm text-[#a1a1aa]">Typically responds within 24 hours</p>
-              </div>
-            </motion.div>
-          </motion.div>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {quickLinks.map((item) => (
+            <QuickChip key={item.label} {...item} />
+          ))}
+          {socialLinks.map((item) => (
+            <QuickChip key={item.label} {...item} />
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="terminal-window w-full rounded-[32px] text-left"
+        >
+          <div className="terminal-header justify-between">
+            <div className="flex items-center gap-2">
+              <span className="terminal-dot bg-[#ff6057]" />
+              <span className="terminal-dot bg-[#ffbd2f]" />
+              <span className="terminal-dot bg-[#28c840]" />
+            </div>
+            <span className="font-mono text-xs text-[var(--text-muted)]">
+              contact_form.sh
+            </span>
+            <span className="w-12" />
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6 px-6 py-7 sm:px-8 sm:py-8">
+            <Field
+              id="name"
+              label="$ name"
+              placeholder="your_name"
+              value={formState.name}
+              onChange={(value) => setFormState((current) => ({ ...current, name: value }))}
+            />
+            <Field
+              id="email"
+              label="$ email"
+              placeholder="your@email.com"
+              value={formState.email}
+              onChange={(value) => setFormState((current) => ({ ...current, email: value }))}
+              type="email"
+            />
+            <Field
+              id="message"
+              label="$ message"
+              placeholder="Tell me about your project..."
+              value={formState.message}
+              onChange={(value) => setFormState((current) => ({ ...current, message: value }))}
+              textarea
+            />
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[var(--primary)] px-6 py-4 font-mono text-sm font-semibold text-[#0A1931] transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+            >
+              {isSubmitted ? (
+                <>
+                  <Check className="h-4 w-4" />
+                  Message queued
+                </>
+              ) : isSubmitting ? (
+                <>
+                  <Send className="h-4 w-4 animate-pulse" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4" />
+                  $ ./submit
+                </>
+              )}
+            </button>
+          </form>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function ContactItem({
-  icon,
+function QuickChip({
   label,
-  value,
   href,
+  icon: Icon,
+  color,
 }: {
-  icon: React.ReactNode;
   label: string;
-  value: string;
   href?: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color?: string;
 }) {
   const content = (
-    <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0f0f14] border border-white/5 hover:border-[#7c3aed]/30 transition-colors">
-      <div className="p-3 rounded-lg bg-[#7c3aed]/20 text-[#7c3aed]">{icon}</div>
-      <div>
-        <span className="text-xs text-[#52525b] block">{label}</span>
-        <span className="text-white font-medium">{value}</span>
-      </div>
-    </div>
+    <span className={`terminal-chip terminal-chip-muted transition-colors ${color || ""}`}>
+      <Icon className="h-4 w-4 text-[var(--primary)]" />
+      {label}
+    </span>
   );
 
   return href ? (
-    <motion.a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
       {content}
-    </motion.a>
+    </a>
   ) : (
     content
+  );
+}
+
+function Field({
+  id,
+  label,
+  placeholder,
+  value,
+  onChange,
+  textarea,
+  type = "text",
+}: {
+  id: string;
+  label: string;
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+  textarea?: boolean;
+  type?: "text" | "email";
+}) {
+  return (
+    <label className="block" htmlFor={id}>
+      <span className="mb-3 block font-mono text-sm text-[var(--text-secondary)]">
+        {label}
+      </span>
+      {textarea ? (
+        <textarea
+          id={id}
+          rows={6}
+          required
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
+          className="min-h-[180px] w-full rounded-2xl border border-[var(--border)] bg-[rgba(26,61,99,0.9)] px-4 py-4 text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(179,207,229,0.28)]"
+        />
+      ) : (
+        <input
+          id={id}
+          type={type}
+          required
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
+          className="w-full rounded-2xl border border-[var(--border)] bg-[rgba(26,61,99,0.9)] px-4 py-4 text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(179,207,229,0.28)]"
+        />
+      )}
+    </label>
   );
 }

@@ -1,104 +1,113 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const codeSnippets = [
-  { text: "const component = () => {}", delay: 0, x: "10%", y: "15%", fontSize: "text-xs" },
-  { text: "@Component({...})", delay: 2, x: "80%", y: "20%", fontSize: "text-xs" },
-  { text: "ngOnInit()", delay: 4, x: "5%", y: "60%", fontSize: "text-xs" },
-  { text: "useEffect(() => {})", delay: 1, x: "75%", y: "70%", fontSize: "text-xs" },
-  { text: "import { useState }", delay: 3, x: "20%", y: "40%", fontSize: "text-xs" },
-  { text: "<ng-container>", delay: 5, x: "60%", y: "35%", fontSize: "text-xs" },
-  { text: "interface Props {}", delay: 2.5, x: "35%", y: "80%", fontSize: "text-xs" },
-  { text: "<app-component>", delay: 4.5, x: "85%", y: "50%", fontSize: "text-xs" },
-  { text: "export default function", delay: 1.5, x: "15%", y: "25%", fontSize: "text-xs" },
-  { text: "const routes: Routes", delay: 3.5, x: "55%", y: "85%", fontSize: "text-xs" },
-  { text: "useContext()", delay: 0.5, x: "45%", y: "10%", fontSize: "text-xs" },
-  { text: "this.http.get()", delay: 6, x: "25%", y: "55%", fontSize: "text-xs" },
-  { text: "React.FC<Props>", delay: 7, x: "70%", y: "45%", fontSize: "text-xs" },
-  { text: "@Injectable()", delay: 8, x: "40%", y: "30%", fontSize: "text-xs" },
-  { text: "npm install", delay: 9, x: "90%", y: "75%", fontSize: "text-xs" },
+const snippets = [
+  { text: "const developer = 'nitesh'", x: "7%", y: "9%", size: "text-[9px] sm:text-[10px]" },
+  { text: "React.createElement(UI)", x: "24%", y: "12%", size: "text-[9px] sm:text-[10px]" },
+  { text: "Angular.module('portfolio')", x: "63%", y: "10%", size: "text-[9px] sm:text-[10px]" },
+  { text: "<div class='hero-section'>", x: "82%", y: "17%", size: "text-[9px] sm:text-[10px]" },
+
+  { text: "HTML + CSS + JavaScript", x: "6%", y: "24%", size: "text-[10px] sm:text-xs" },
+  { text: "TailwindCSS.flex.items-center()", x: "39%", y: "21%", size: "text-[9px] sm:text-[10px]" },
+  { text: "Bootstrap.container-fluid", x: "72%", y: "28%", size: "text-[9px] sm:text-[10px]" },
+
+  { text: "Next.js.optimizeImages()", x: "12%", y: "36%", size: "text-[9px] sm:text-[10px]" },
+  { text: "useState(activeSection)", x: "56%", y: "34%", size: "text-[9px] sm:text-[10px]" },
+  { text: "frontend.performance >= 95", x: "84%", y: "41%", size: "text-[9px] sm:text-[10px]" },
+
+  { text: "responsiveDesign === true", x: "7%", y: "48%", size: "text-[10px] sm:text-xs" },
+  { text: "TypeScript.strictMode()", x: "31%", y: "46%", size: "text-[9px] sm:text-[10px]" },
+  { text: "npm install next react", x: "63%", y: "51%", size: "text-[9px] sm:text-[10px]" },
+  { text: "styled-components.theme()", x: "81%", y: "57%", size: "text-[9px] sm:text-[10px]" },
+
+  { text: "SASS.compile(styles)", x: "11%", y: "63%", size: "text-[9px] sm:text-[10px]" },
+  { text: "WCAG.accessibility('pass')", x: "44%", y: "60%", size: "text-[9px] sm:text-[10px]" },
+  { text: "React + Angular + Next.js", x: "68%", y: "68%", size: "text-[10px] sm:text-xs" },
+
+  { text: "FramerMotion.animate()", x: "5%", y: "76%", size: "text-[9px] sm:text-[10px]" },
+  { text: "Tailwind.config.extend()", x: "27%", y: "82%", size: "text-[9px] sm:text-[10px]" },
+  { text: "ReduxToolkit.store()", x: "56%", y: "80%", size: "text-[9px] sm:text-[10px]" },
+  { text: "performance_budget < 160kb", x: "78%", y: "87%", size: "text-[9px] sm:text-[10px]" },
+
+  { text: "animate(ui)", x: "45%", y: "92%", size: "text-[9px] sm:text-[10px]" },
 ];
 
-interface AnimatedBackgroundProps {
-  className?: string;
-}
-
-export default function AnimatedBackground({ className }: AnimatedBackgroundProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
+export default function AnimatedBackground({ className }: { className?: string }) {
   return (
-    <div className={cn("fixed inset-0 z-0 overflow-hidden pointer-events-none", className)}>
-      {/* Grid lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03]">
+    <div
+      className={cn("fixed inset-0 z-0 overflow-hidden pointer-events-none will-change-transform", className)}
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(86,182,255,0.12),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(31,76,153,0.14),transparent_26%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,18,0.16),transparent_38%,rgba(6,10,18,0.2)_100%)]" />
+
+      <svg className="absolute inset-0 h-full w-full opacity-[0.12] grid-fade">
         <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5" />
+          <pattern id="portfolio-grid-main" width="72" height="72" patternUnits="userSpaceOnUse">
+            <path
+              d="M 72 0 L 0 0 0 72"
+              fill="none"
+              stroke="rgba(125,226,255,0.16)"
+              strokeWidth="0.5"
+            />
+          </pattern>
+          <pattern id="portfolio-grid-sub" width="18" height="18" patternUnits="userSpaceOnUse">
+            <path
+              d="M 18 0 L 0 0 0 18"
+              fill="none"
+              stroke="rgba(96,165,250,0.06)"
+              strokeWidth="0.35"
+            />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
+        <rect width="100%" height="100%" fill="url(#portfolio-grid-main)" />
+        <rect width="100%" height="100%" fill="url(#portfolio-grid-sub)" />
       </svg>
 
-      {/* Animated gradient orbs */}
+      <div className="absolute inset-x-0 top-[22%] h-px bg-gradient-to-r from-transparent via-[rgba(125,226,255,0.06)] to-transparent" />
+      <div className="absolute inset-x-0 top-[56%] h-px bg-gradient-to-r from-transparent via-[rgba(125,226,255,0.05)] to-transparent" />
+      <div className="absolute inset-x-0 top-[84%] h-px bg-gradient-to-r from-transparent via-[rgba(125,226,255,0.04)] to-transparent" />
+
       <motion.div
-        className="absolute -top-[40%] -right-[20%] w-[800px] h-[800px] rounded-full bg-gradient-to-br from-[#7c3aed]/20 to-transparent blur-[100px]"
-        animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
+        className="absolute -left-28 top-16 h-80 w-80 rounded-full bg-[rgba(125,226,255,0.08)] blur-[130px]"
+        animate={{ x: [0, 30, 0], y: [0, 22, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute right-[-7rem] top-[24%] h-[26rem] w-[26rem] rounded-full bg-[rgba(59,130,246,0.08)] blur-[155px]"
+        animate={{ x: [0, -34, 0], y: [0, -26, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[-10rem] left-[18%] h-[30rem] w-[30rem] rounded-full bg-[rgba(205,244,255,0.04)] blur-[170px]"
+        animate={{ x: [0, 28, 0], y: [0, -30, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <motion.div
-        className="absolute -bottom-[20%] -left-[20%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#6366f1]/15 to-transparent blur-[80px]"
-        animate={{ x: [0, -40, 0], y: [0, -20, 0], scale: [1, 1.05, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute top-[30%] left-[50%] w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#8b5cf6]/10 to-transparent blur-[60px]"
-        animate={{ x: [0, 30, 0], y: [0, 40, 0], scale: [1, 1.1, 1] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Floating dots */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-white/20 rounded-full"
-          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-          animate={{ y: [0, -20, 0], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2, ease: "easeInOut" }}
-        />
-      ))}
-
-      {/* Floating Code Snippets */}
-      {codeSnippets.map((snippet, index) => (
-        <motion.div
-          key={index}
-          className={`absolute font-mono text-[#7c3aed]/20 ${snippet.fontSize}`}
+      {snippets.map((snippet, index) => (
+        <motion.span
+          key={snippet.text}
+          className={cn(
+            "absolute font-mono tracking-[0.03em] text-[rgba(113,168,255,0.22)] pointer-events-none",
+            snippet.size
+          )}
           style={{ left: snippet.x, top: snippet.y }}
-          initial={{ opacity: 0 }}
           animate={{
-            opacity: [0.1, 0.2, 0.1],
-            x: [0, 30, 0],
-            y: [0, 20, 0],
-            rotate: [0, 5, -5, 0],
+            opacity: [0.12, 0.35, 0.12],
+            y: [0, -12, 0],
           }}
           transition={{
-            duration: 12 + index * 2,
+            duration: 7 + (index % 5),
             repeat: Infinity,
             ease: "easeInOut",
-            delay: snippet.delay,
+            delay: index * 0.3,
           }}
         >
           {snippet.text}
-        </motion.div>
+        </motion.span>
       ))}
     </div>
   );
