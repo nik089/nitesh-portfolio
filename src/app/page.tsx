@@ -4,34 +4,28 @@ import HeroSection from "@/components/hero/HeroSection";
 import StatsSection from "@/components/stats/StatsSection";
 import AboutSection from "@/components/about/AboutSection";
 import SkillsSection from "@/components/skills/SkillsSection";
-import ServicesSection from "@/components/services/ServicesSection";
-import TimelineSection from "@/components/timeline/TimelineSection";
+import ExperienceSection from "@/components/experience/ExperienceSection";
+
 import ProjectsSection from "@/components/projects/ProjectsSection";
+import AchievementsSection from "@/components/achievements/AchievementsSection";
 import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
     <>
-      {/* Animated Background */}
       <AnimatedBackground />
-
-      {/* Navigation */}
       <Navbar />
-
-      {/* Main Content Sections */}
       <main className="relative z-10">
         <HeroSection />
         <StatsSection />
         <AboutSection />
         <SkillsSection />
-        <ServicesSection />
+        <ExperienceSection />
         <ProjectsSection />
-        <TimelineSection />
+        <AchievementsSection />
         <ContactSection />
       </main>
-
-      {/* Footer */}
       <Footer />
     </>
   );

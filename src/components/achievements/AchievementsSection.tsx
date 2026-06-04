@@ -1,92 +1,70 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Accessibility, Building, Layers, Zap, GitBranch } from "lucide-react";
+import { CheckCircle2, Award, Shield, Gauge, Layers, Code2, Accessibility } from "lucide-react";
 
 const achievements = [
-  {
-    icon: <Accessibility className="w-8 h-8" />,
-    title: "WCAG 2.1 Expertise",
-    description: "Built comprehensive accessibility widgets ensuring compliance with international standards",
-    gradient: "from-[#7c3aed] to-[#6366f1]",
-  },
-  {
-    icon: <Building className="w-8 h-8" />,
-    title: "GovTech Platform Development",
-    description: "Led development of government-scale applications serving millions of citizens",
-    gradient: "from-[#6366f1] to-[#8b5cf6]",
-  },
-  {
-    icon: <Layers className="w-8 h-8" />,
-    title: "Design System Architecture",
-    description: "Architected enterprise design systems with 100+ accessible components",
-    gradient: "from-[#8b5cf6] to-[#a855f7]",
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Performance Optimization",
-    description: "Achieved 95+ Lighthouse scores through strategic optimization techniques",
-    gradient: "from-[#a855f7] to-[#ec4899]",
-  },
-  {
-    icon: <GitBranch className="w-8 h-8" />,
-    title: "CI/CD & Frontend Scalability",
-    description: "Implemented automated pipelines enabling rapid deployment and scaling",
-    gradient: "from-[#ec4899] to-[#f43f5e]",
-  },
+  { icon: Layers, text: "Built UX4G Design System — enterprise-grade component library for government platforms", color: "text-[var(--primary)]" },
+  { icon: Shield, text: "Achieved WCAG 2.1 AA compliance across 10+ government portals", color: "text-[var(--accent)]" },
+  { icon: Gauge, text: "Optimized Lighthouse scores to 95+ across production applications", color: "text-[var(--secondary)]" },
+  { icon: Code2, text: "Architected micro-frontend systems handling 100K+ monthly users", color: "text-[#f59e0b]" },
+  { icon: Accessibility, text: "Pioneered accessibility-first development culture at Netoyed", color: "text-[#ec4899]" },
+  { icon: Award, text: "Delivered 20+ production projects across GovTech, Fintech, and E-Commerce", color: "text-[#f97316]" },
 ];
 
 export default function AchievementsSection() {
   return (
-    <section className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+    <section id="achievements" className="px-6 py-24">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10">
         <motion.div
-          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Key <span className="gradient-text">Achievements</span>
+          <span className="section-tag">// Achievements</span>
+          <h2 className="mt-6 font-heading text-4xl font-bold text-[var(--text-primary)] sm:text-5xl">
+            Key Milestones
           </h2>
-          <p className="text-[#a1a1aa] max-w-2xl mx-auto">
-            Milestones that define my professional journey
-          </p>
-          <div className="w-20 h-1 mx-auto mt-4 bg-gradient-to-r from-[#7c3aed] to-[#a855f7] rounded-full" />
         </motion.div>
 
-        {/* Achievements Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={achievement.title}
-              className="group relative glass rounded-2xl p-6 overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-            >
-              {/* Gradient Border Effect */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${achievement.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`}
-              />
+        <div className="terminal-window mx-auto w-full max-w-4xl">
+          <div className="terminal-header justify-between">
+            <div className="flex items-center gap-2">
+              <span className="terminal-dot bg-[#ff5f57]" />
+              <span className="terminal-dot bg-[#febc2e]" />
+              <span className="terminal-dot bg-[#28c840]" />
+            </div>
+            <span className="font-mono text-xs text-[var(--text-muted)]">achievements.sh</span>
+            <span className="w-16" />
+          </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                <div
-                  className={`inline-flex p-3 rounded-xl mb-4 bg-gradient-to-br ${achievement.gradient}`}
-                >
-                  <div className="text-white">{achievement.icon}</div>
-                </div>
+          <div className="relative z-10 px-5 py-5">
+            <p className="font-mono text-xs text-[var(--accent)] mb-5">$ cat achievements.log</p>
 
-                <h3 className="text-xl font-semibold mb-2 text-white">{achievement.title}</h3>
-                <p className="text-[#a1a1aa] text-sm">{achievement.description}</p>
-              </div>
-            </motion.div>
-          ))}
+            <div className="space-y-3">
+              {achievements.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.text}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.4 }}
+                    className="flex items-start gap-3 rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3"
+                  >
+                    <Icon className={`h-4 w-4 mt-0.5 flex-shrink-0 ${item.color}`} />
+                    <span className="text-sm text-[var(--text-secondary)] leading-5">{item.text}</span>
+                    <CheckCircle2 className="h-4 w-4 text-[var(--accent)] ml-auto flex-shrink-0 mt-0.5" />
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <p className="mt-4 font-mono text-xs text-[var(--text-muted)]">$ _</p>
+          </div>
         </div>
       </div>
     </section>

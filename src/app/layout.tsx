@@ -3,19 +3,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Nitesh Yadav | Senior Frontend Developer",
-  description: "Building scalable, accessible, and high-performance web experiences. Senior Frontend Developer with 4+ years in Angular, React, TypeScript.",
-  keywords: ["Frontend Developer", "Angular", "React", "TypeScript", "Portfolio", "Web Developer"],
+  description: "Senior Frontend Developer with 4+ years building scalable, accessible, high-performance web applications. Specialist in Angular, React, Next.js, TypeScript, and Design Systems.",
+  keywords: ["Frontend Developer", "Angular", "React", "TypeScript", "Next.js", "Design Systems", "Accessibility", "Portfolio"],
   authors: [{ name: "Nitesh Yadav" }],
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
   },
   other: {
-    "theme-color": "#0a192f",
+    "theme-color": "#0a0a0f",
   },
   openGraph: {
     title: "Nitesh Yadav | Senior Frontend Developer",
-    description: "Building scalable, accessible, and high-performance web experiences.",
+    description: "Building scalable, accessible, and high-performance web experiences for enterprise teams.",
     type: "website",
   },
 };
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="font-sans antialiased">{children}</body>
+      <body className="noise-overlay font-sans antialiased">{children}</body>
     </html>
   );
 }

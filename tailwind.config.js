@@ -8,17 +8,45 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#0A1931',
-        surface: '#1A3D63',
-        'surface-elevated': '#4A7FA7',
-        primary: '#B3CFE5',
-        'primary-light': '#4A7FA7',
-        secondary: '#ffffff',
-        accent: '#B3CFE5',
+        background: '#0a0a0f',
+        surface: '#111118',
+        'surface-elevated': '#1a1a24',
+        primary: '#00d4ff',
+        'primary-light': '#7dd3fc',
+        secondary: '#a78bfa',
+        accent: '#34d399',
+        muted: '#64748b',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
+        heading: ['Sora', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Consolas', 'Monaco', 'monospace'],
+      },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'typing': 'typing 3.5s steps(40, end)',
+        'gradient': 'gradient 8s ease infinite',
+        'orbit': 'orbit 12s linear infinite',
+      },
+      keyframes: {
+        'pulse-glow': {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'gradient': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'orbit': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
     },
   },
