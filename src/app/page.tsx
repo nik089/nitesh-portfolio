@@ -5,7 +5,7 @@ import StatsSection from "@/components/stats/StatsSection";
 import AboutSection from "@/components/about/AboutSection";
 import SkillsSection from "@/components/skills/SkillsSection";
 import ExperienceSection from "@/components/experience/ExperienceSection";
-
+import EducationSection from "@/components/education/EducationSection";
 import ProjectsSection from "@/components/projects/ProjectsSection";
 import AchievementsSection from "@/components/achievements/AchievementsSection";
 import ContactSection from "@/components/contact/ContactSection";
@@ -22,6 +22,7 @@ export default function Home() {
         <AboutSection />
         <SkillsSection />
         <ExperienceSection />
+        <EducationSection />
         <ProjectsSection />
         <AchievementsSection />
         <ContactSection />

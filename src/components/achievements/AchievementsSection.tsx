@@ -7,7 +7,7 @@ const achievements = [
   { icon: Layers, text: "Built UX4G Design System — enterprise-grade component library for government platforms", color: "text-[var(--primary)]" },
   { icon: Shield, text: "Achieved WCAG 2.1 AA compliance across 10+ government portals", color: "text-[var(--accent)]" },
   { icon: Gauge, text: "Optimized Lighthouse scores to 95+ across production applications", color: "text-[var(--secondary)]" },
-  { icon: Code2, text: "Architected micro-frontend systems handling 100K+ monthly users", color: "text-[#f59e0b]" },
+  { icon: Code2, text: "Architected micro-frontend systems", color: "text-[#f59e0b]" },
   { icon: Accessibility, text: "Pioneered accessibility-first development culture at Netoyed", color: "text-[#ec4899]" },
   { icon: Award, text: "Delivered 20+ production projects across GovTech, Fintech, and E-Commerce", color: "text-[#f97316]" },
 ];

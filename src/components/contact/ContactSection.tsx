@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Github, Linkedin, Mail, MapPin, Send, Download, MessageCircle, AlertCircle } from "lucide-react";
 
+// Web3Forms access key — get yours free at https://web3forms.com
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+
 export default function ContactSection() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -16,33 +19,33 @@ export default function ContactSection() {
     setError("");
 
     try {
-      // Using Formspree free tier (no signup needed for basic usage)
-      // Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io
-      const response = await fetch("https://formspree.io/f/Nikyadav085@gmail.com", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
           name: formState.name,
           email: formState.email,
           message: formState.message,
-          _subject: `Portfolio Contact: ${formState.name}`,
+          subject: `Portfolio Contact: ${formState.name}`,
+          from_name: "Portfolio Contact Form",
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         setIsSubmitted(true);
         setFormState({ name: "", email: "", message: "" });
         setTimeout(() => setIsSubmitted(false), 4000);
       } else {
-        // Fallback: open mailto with pre-filled data
-        const mailtoUrl = `mailto:Nikyadav085@gmail.com?subject=${encodeURIComponent(`Portfolio Contact from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)}`;
-        window.location.href = mailtoUrl;
-        setIsSubmitted(true);
-        setFormState({ name: "", email: "", message: "" });
-        setTimeout(() => setIsSubmitted(false), 4000);
+        setError(result.message || "Something went wrong. Please try again.");
       }
     } catch {
-      // Fallback to mailto if API fails — always works
+      // Fallback to mailto if Web3Forms API fails
       const mailtoUrl = `mailto:Nikyadav085@gmail.com?subject=${encodeURIComponent(`Portfolio Contact from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)}`;
       window.location.href = mailtoUrl;
       setIsSubmitted(true);
