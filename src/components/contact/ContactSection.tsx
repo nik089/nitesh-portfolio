@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Check, Github, Linkedin, Mail, MapPin, Send, Download, MessageCircle, AlertCircle } from "lucide-react";
+import { Check, Github, Linkedin, Mail, MapPin, Send, Download, MessageCircle, AlertCircle, RefreshCw } from "lucide-react";
 
 // Web3Forms access key — get yours free at https://web3forms.com
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
@@ -12,6 +12,42 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [isCaptchaValid, setIsCaptchaValid] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+
+  // Dynamically import and load captcha (canvas-based, needs DOM)
+  useEffect(() => {
+    import("react-simple-captcha").then(({ loadCaptchaEnginge }) => {
+      loadCaptchaEnginge(6);
+    });
+  }, []);
+
+  const handleCaptchaChange = (value: string) => {
+    setCaptchaInput(value);
+    setCaptchaError("");
+    // Validate on-the-fly
+    import("react-simple-captcha").then(({ validateCaptcha }) => {
+      if (value.length >= 6) {
+        const isValid = validateCaptcha(value, false);
+        setIsCaptchaValid(isValid);
+        if (!isValid && value.length >= 6) {
+          setCaptchaError("CAPTCHA does not match. Try again.");
+        }
+      } else {
+        setIsCaptchaValid(false);
+      }
+    });
+  };
+
+  const reloadCaptcha = () => {
+    import("react-simple-captcha").then(({ loadCaptchaEnginge }) => {
+      loadCaptchaEnginge(6);
+      setCaptchaInput("");
+      setIsCaptchaValid(false);
+      setCaptchaError("");
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +76,9 @@ export default function ContactSection() {
       if (result.success) {
         setIsSubmitted(true);
         setFormState({ name: "", email: "", message: "" });
+        setCaptchaInput("");
+        setIsCaptchaValid(false);
+        reloadCaptcha();
         setTimeout(() => setIsSubmitted(false), 4000);
       } else {
         setError(result.message || "Something went wrong. Please try again.");
@@ -50,6 +89,9 @@ export default function ContactSection() {
       window.location.href = mailtoUrl;
       setIsSubmitted(true);
       setFormState({ name: "", email: "", message: "" });
+      setCaptchaInput("");
+      setIsCaptchaValid(false);
+      reloadCaptcha();
       setTimeout(() => setIsSubmitted(false), 4000);
     }
 
@@ -166,10 +208,46 @@ export default function ContactSection() {
               </div>
             )}
 
+            {/* CAPTCHA */}
+            <div className="space-y-2">
+              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">$ verify --human:</label>
+              <div className="flex items-center gap-3">
+                <div className="captcha-container rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.04)] px-3 py-2 [&_canvas]:!rounded [&_canvas]:!bg-transparent" id="captcha-wrapper">
+                  <div id="reload_href" style={{ display: "none" }} />
+                  <canvas id="canv" width="200" height="50" />
+                </div>
+                <button
+                  type="button"
+                  onClick={reloadCaptcha}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--primary)] hover:border-[rgba(0,212,255,0.3)] transition-all"
+                  title="Reload CAPTCHA"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                </button>
+              </div>
+              <input
+                type="text"
+                value={captchaInput}
+                onChange={(e) => handleCaptchaChange(e.target.value)}
+                placeholder="type the captcha above"
+                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(0,212,255,0.3)]"
+              />
+              {captchaError && (
+                <p className="flex items-center gap-1 font-mono text-xs text-red-400">
+                  <AlertCircle className="h-3 w-3" />{captchaError}
+                </p>
+              )}
+              {isCaptchaValid && (
+                <p className="flex items-center gap-1 font-mono text-xs text-[var(--accent)]">
+                  <Check className="h-3 w-3" />CAPTCHA verified
+                </p>
+              )}
+            </div>
+
             <div className="flex flex-col gap-3 sm:flex-row">
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isCaptchaValid}
                 className="magnetic-btn flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#7dd3fc] px-6 py-3.5 font-mono text-sm font-semibold text-[#0a0a0f] disabled:opacity-60"
               >
                 {isSubmitted ? (

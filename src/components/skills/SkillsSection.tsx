@@ -11,9 +11,10 @@ import {
   SiFigma, SiNpm, SiGit, SiGithubcopilot, SiOpenai,
   SiDocker, SiStorybook,
   SiHtml5, SiCss, SiTailwindcss, SiBootstrap, SiPrimeng,
+  SiJenkins, SiJira, SiBitbucket, SiGitlab, SiGithub,
 } from "react-icons/si";
 import { VscVscode, VscTerminalBash } from "react-icons/vsc";
-import { TbBrandGoogle, TbAccessible, TbPalette, TbComponents, TbBrandFramerMotion } from "react-icons/tb";
+import { TbBrandGoogle, TbAccessible, TbPalette, TbComponents, TbBrandFramerMotion, TbGitBranch, TbRefresh } from "react-icons/tb";
 
 type SkillItem = {
   name: string;
@@ -82,7 +83,6 @@ const skillCategories: { key: string; label: string; items: SkillItem[] }[] = [
       { name: "VS Code", icon: <VscVscode color="#007ACC" className="h-5 w-5" /> },
       { name: "Figma", icon: <SiFigma color="#F24E1E" className="h-5 w-5" /> },
       { name: "npm", icon: <SiNpm color="#CB3837" className="h-5 w-5" /> },
-      { name: "Git", icon: <SiGit color="#F05032" className="h-5 w-5" /> },
       { name: "MCP Servers", icon: <VscTerminalBash color="#00d4ff" className="h-5 w-5" /> },
     ],
   },
@@ -94,6 +94,21 @@ const skillCategories: { key: string; label: string; items: SkillItem[] }[] = [
       { name: "Claude", icon: <VscTerminalBash color="#D97757" className="h-5 w-5" /> },
       { name: "OpenAI Codex", icon: <SiOpenai color="#412991" className="h-5 w-5" /> },
       { name: "Gemini", icon: <TbBrandGoogle color="#4285F4" className="h-5 w-5" /> },
+    ],
+  },
+  {
+    key: "devops",
+    label: "DevOps & Workflow",
+    items: [
+      { name: "Jenkins", icon: <SiJenkins color="#D24939" className="h-5 w-5" /> },
+      { name: "Docker", icon: <SiDocker color="#2496ED" className="h-5 w-5" /> },
+      { name: "Jira", icon: <SiJira color="#0052CC" className="h-5 w-5" /> },
+      { name: "Agile Methodology", icon: <TbRefresh color="#34D399" className="h-5 w-5" /> },
+      { name: "SDLC", icon: <TbGitBranch color="#A78BFA" className="h-5 w-5" /> },
+      { name: "Git", icon: <SiGit color="#F05032" className="h-5 w-5" /> },
+      { name: "GitHub", icon: <SiGithub color="#ffffff" className="h-5 w-5" /> },
+      { name: "Bitbucket", icon: <SiBitbucket color="#0052CC" className="h-5 w-5" /> },
+      { name: "GitLab", icon: <SiGitlab color="#FC6D26" className="h-5 w-5" /> },
     ],
   },
 ];
