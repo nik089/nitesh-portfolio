@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { MapPin, Briefcase, Code2, Shield, Gauge, Users } from "lucide-react";
 
 const expertise = [
@@ -41,11 +42,15 @@ export default function AboutSection() {
           >
             <div className="flex items-center gap-5">
               {/* Avatar */}
-              <img
-                src="/nik.png"
-                alt="Nitesh Yadav"
-                className="h-20 w-20 rounded-2xl object-cover grayscale border border-[var(--border)]"
-              />
+              <div className="relative h-20 w-20 flex-shrink-0">
+                <Image
+                  src="/nik.png"
+                  alt="Nitesh Yadav"
+                  fill
+                  sizes="80px"
+                  className="rounded-2xl object-cover grayscale border border-[var(--border)]"
+                />
+              </div>
               <div>
                 <h3 className="font-heading text-2xl font-bold text-[var(--text-primary)]">Nitesh Yadav</h3>
                 <p className="mt-1 font-mono text-sm text-[var(--primary)]">Senior Frontend Developer</p>

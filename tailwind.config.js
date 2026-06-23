@@ -18,9 +18,9 @@ module.exports = {
         muted: '#64748b',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Sora', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'Consolas', 'Monaco', 'monospace'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'Consolas', 'Monaco', 'monospace'],
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
