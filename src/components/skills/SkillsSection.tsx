@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
-import StackIcon from "tech-stack-icons";
+
 import {
   SiAngular, SiReact, SiNextdotjs, SiJavascript, SiTypescript,
   SiRedux, SiRxdb, SiWebpack, SiVite, SiBabel,
