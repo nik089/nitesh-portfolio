@@ -116,12 +116,12 @@ export default function HeroSection() {
             className="mt-5 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
             <a href="/nitesh_resume.pdf"
               download="Nitesh_Yadav_Resume.pdf"
-              className="magnetic-btn inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#7dd3fc] px-6 py-3 font-mono text-sm font-semibold text-[#0a0a0f] shadow-[0_0_30px_rgba(0,212,255,0.3)]">
+              className="magnetic-btn inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] px-6 py-3 font-mono text-sm font-semibold text-[var(--bg)] shadow-[0_0_30px_var(--glow)]">
               <Download className="h-4 w-4" />
               Request Resume
             </a>
             <a href="#projects"
-              className="magnetic-btn inline-flex items-center gap-2 rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-3 font-mono text-sm text-[var(--text-primary)] hover:border-[rgba(0,212,255,0.3)]">
+              className="magnetic-btn inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--glass-panel)] px-6 py-3 font-mono text-sm text-[var(--text-primary)] hover:border-[rgba(0,212,255,0.3)]">
               View Projects
               <ArrowRight className="h-4 w-4" />
             </a>

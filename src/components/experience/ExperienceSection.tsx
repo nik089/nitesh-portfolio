@@ -105,7 +105,7 @@ export default function ExperienceSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] overflow-hidden"
+                  className="rounded-xl border border-[var(--border)] bg-[var(--glass-panel)] overflow-hidden"
                 >
                   <button
                     onClick={() => setExpanded(expanded === index ? null : index)}

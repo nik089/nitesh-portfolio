@@ -54,7 +54,7 @@ export default function AchievementsSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.4 }}
-                    className="flex items-start gap-3 rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3"
+                    className="flex items-start gap-3 rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3"
                   >
                     <Icon className={`h-4 w-4 mt-0.5 flex-shrink-0 ${item.color}`} />
                     <span className="text-sm text-[var(--text-secondary)] leading-5">{item.text}</span>

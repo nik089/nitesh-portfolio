@@ -83,6 +83,7 @@ const skillCategories: { key: string; label: string; items: SkillItem[] }[] = [
       { name: "VS Code", icon: <VscVscode color="#007ACC" className="h-5 w-5" /> },
       { name: "Figma", icon: <SiFigma color="#F24E1E" className="h-5 w-5" /> },
       { name: "npm", icon: <SiNpm color="#CB3837" className="h-5 w-5" /> },
+      { name: "Storybook", icon: <SiStorybook color="#FF4785" className="h-5 w-5" /> },
       { name: "MCP Servers", icon: <VscTerminalBash color="#00d4ff" className="h-5 w-5" /> },
     ],
   },
@@ -160,7 +161,7 @@ export default function SkillsSection() {
                   key={cat.key}
                   onClick={() => setActiveKey(cat.key)}
                   className={`rounded-lg px-3 py-1.5 font-mono text-xs transition-all ${activeKey === cat.key
-                    ? "bg-[var(--primary)] text-[#0a0a0f] font-semibold"
+                    ? "bg-[var(--primary)] text-[var(--bg)] font-semibold"
                     : "text-[var(--text-muted)] hover:text-[var(--text-secondary)] border border-[var(--border)]"
                     }`}
                 >
@@ -188,7 +189,7 @@ export default function SkillsSection() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 group hover:border-[rgba(0,212,255,0.15)] transition-all"
+                    className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3 group hover:border-[rgba(0,212,255,0.15)] transition-all"
                   >
                     {/* Colorful icon */}
                     <span className="flex-shrink-0">{item.icon}</span>

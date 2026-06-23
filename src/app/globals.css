@@ -4,10 +4,40 @@
 @tailwind utilities;
 
 :root {
+  /* Light Mode Variables */
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --surface-elevated: #f1f5f9;
+  --primary: #0284c7;
+  --primary-light: #38bdf8;
+  --primary-dim: rgba(2, 132, 199, 0.15);
+  --secondary: #7c3aed;
+  --accent: #059669;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border: rgba(0, 0, 0, 0.1);
+  --glow: rgba(2, 132, 199, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-strong-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-panel: rgba(0, 0, 0, 0.03);
+  --glass-panel-hover: rgba(0, 0, 0, 0.06);
+  --grid-line: rgba(0, 0, 0, 0.05);
+  
+  --terminal-bg: linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
+  --terminal-border: rgba(0, 0, 0, 0.1);
+  --terminal-header: rgba(0, 0, 0, 0.03);
+  --terminal-scanline: rgba(0, 0, 0, 0.02);
+}
+
+.dark {
+  /* Dark Mode Variables */
   --bg: #0a0a0f;
   --surface: #111118;
   --surface-elevated: #1a1a24;
   --primary: #00d4ff;
+  --primary-light: #7dd3fc;
   --primary-dim: rgba(0, 212, 255, 0.15);
   --secondary: #a78bfa;
   --accent: #34d399;
@@ -16,6 +46,18 @@
   --text-muted: #64748b;
   --border: rgba(255, 255, 255, 0.06);
   --glow: rgba(0, 212, 255, 0.3);
+
+  --glass-bg: rgba(17, 17, 24, 0.8);
+  --glass-strong-bg: rgba(17, 17, 24, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-panel: rgba(255, 255, 255, 0.02);
+  --glass-panel-hover: rgba(255, 255, 255, 0.04);
+  --grid-line: rgba(255, 255, 255, 0.02);
+  
+  --terminal-bg: linear-gradient(180deg, rgba(17, 17, 24, 0.98) 0%, rgba(10, 10, 15, 0.98) 100%);
+  --terminal-border: rgba(255, 255, 255, 0.08);
+  --terminal-header: rgba(255, 255, 255, 0.02);
+  --terminal-scanline: rgba(255, 255, 255, 0.01);
 }
 
 * {
@@ -66,15 +108,15 @@ body {
 
 /* Glass morphism */
 .glass {
-  background: rgba(17, 17, 24, 0.8);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
 .glass-strong {
-  background: rgba(17, 17, 24, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--glass-strong-bg);
+  border: 1px solid var(--glass-border);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -83,10 +125,10 @@ body {
 .terminal-window {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--terminal-border);
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(17, 17, 24, 0.98) 0%, rgba(10, 10, 15, 0.98) 100%);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 212, 255, 0.05);
+  background: var(--terminal-bg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--primary-dim);
 }
 
 .terminal-window::after {
@@ -96,8 +138,8 @@ body {
   pointer-events: none;
   background: repeating-linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.01) 0,
-    rgba(255, 255, 255, 0.01) 1px,
+    var(--terminal-scanline) 0,
+    var(--terminal-scanline) 1px,
     transparent 1px,
     transparent 3px
   );
@@ -109,8 +151,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--terminal-border);
+  background: var(--terminal-header);
 }
 
 .terminal-dot {
@@ -195,8 +237,8 @@ body {
 .grid-bg {
   background-size: 60px 60px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 }
 
 /* Aurora gradient */

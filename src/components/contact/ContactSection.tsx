@@ -174,7 +174,7 @@ export default function ContactSection() {
                 value={formState.name}
                 onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
                 placeholder="your_name"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
             </div>
 
@@ -186,7 +186,7 @@ export default function ContactSection() {
                 value={formState.email}
                 onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
                 placeholder="your@email.com"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function ContactSection() {
                 value={formState.message}
                 onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
                 placeholder="Tell me about your project..."
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)] resize-none"
+                className="w-full rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)] resize-none"
               />
             </div>
 
@@ -212,7 +212,7 @@ export default function ContactSection() {
             <div className="space-y-2">
               <label className="block font-mono text-xs text-[var(--text-secondary)] mb-2">$ verify --human:</label>
               <div className="flex items-center gap-3">
-                <div className="captcha-container rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.04)] px-3 py-2 [&_canvas]:!rounded [&_canvas]:!bg-transparent" id="captcha-wrapper">
+                <div className="captcha-container rounded-lg border border-[var(--border)] bg-[var(--glass-panel-hover)] px-3 py-2 [&_canvas]:!rounded [&_canvas]:!bg-transparent" id="captcha-wrapper">
                   <div id="reload_href" style={{ display: "none" }} />
                   <canvas id="canv" width="200" height="50" />
                 </div>
@@ -231,7 +231,7 @@ export default function ContactSection() {
                 value={captchaInput}
                 onChange={(e) => handleCaptchaChange(e.target.value)}
                 placeholder="type the captcha above"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[var(--glass-panel)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
               {captchaError && (
                 <p className="flex items-center gap-1 font-mono text-xs text-red-400">
@@ -249,7 +249,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting || !isCaptchaValid}
-                className="magnetic-btn flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#7dd3fc] px-6 py-3.5 font-mono text-sm font-semibold text-[#0a0a0f] disabled:opacity-60"
+                className="magnetic-btn flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] px-6 py-3.5 font-mono text-sm font-semibold text-[var(--bg)] disabled:opacity-60"
               >
                 {isSubmitted ? (
                   <><Check className="h-4 w-4" />Message Sent Successfully!</>

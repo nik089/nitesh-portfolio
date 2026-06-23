@@ -53,7 +53,7 @@ export default function EducationSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15, duration: 0.5 }}
-                  className="rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-5 hover:border-[rgba(0,212,255,0.15)] transition-all"
+                  className="rounded-xl border border-[var(--border)] bg-[var(--glass-panel)] p-5 hover:border-[rgba(0,212,255,0.15)] transition-all"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[rgba(0,212,255,0.15)] flex-shrink-0 overflow-hidden p-1">
