@@ -141,7 +141,7 @@ export default function ContactSection() {
           <span className="terminal-chip">
             <MapPin className="h-3.5 w-3.5 text-[var(--accent)]" />Delhi, India
           </span>
-          <a href="mailto:Nikyadav085@gmail.com?subject=Resume%20Request" className="terminal-chip hover:border-[rgba(52,211,153,0.3)]">
+          <a href="/nitesh_resume.pdf" download="Nitesh_Yadav_Resume.pdf" className="terminal-chip hover:border-[rgba(52,211,153,0.3)]">
             <Download className="h-3.5 w-3.5 text-[var(--accent)]" />Resume
           </a>
         </div>

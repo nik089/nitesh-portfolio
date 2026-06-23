@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Shield, Gauge, Layers, Code2, Accessibility } from "lucide-react";
+import { CheckCircle2, Award, Shield, Gauge, Layers, Code2, Accessibility, Bot } from "lucide-react";
 
 const achievements = [
   { icon: Layers, text: "Built UX4G Design System — enterprise-grade component library for government platforms", color: "text-[var(--primary)]" },
@@ -10,6 +10,7 @@ const achievements = [
   { icon: Code2, text: "Architected micro-frontend systems", color: "text-[#f59e0b]" },
   { icon: Accessibility, text: "Pioneered accessibility-first development culture at Netoyed", color: "text-[#ec4899]" },
   { icon: Award, text: "Delivered 20+ production projects across GovTech, Fintech, and E-Commerce", color: "text-[#f97316]" },
+  { icon: Bot, text: "Leveraged GenAI (Claude, Codex, ChatGPT) to architect and implement an intelligent, AI-driven Storybook ecosystem for UX4G", color: "text-[#10b981]" },
 ];
 
 export default function AchievementsSection() {

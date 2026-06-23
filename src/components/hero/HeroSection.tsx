@@ -155,7 +155,8 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2 }}
             className="mt-5 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
-            <a href="mailto:Nikyadav085@gmail.com?subject=Resume%20Request"
+            <a href="/nitesh_resume.pdf"
+              download="Nitesh_Yadav_Resume.pdf"
               className="magnetic-btn inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--primary)] to-[#7dd3fc] px-6 py-3 font-mono text-sm font-semibold text-[#0a0a0f] shadow-[0_0_30px_rgba(0,212,255,0.3)]">
               <Download className="h-4 w-4" />
               Request Resume
