@@ -94,23 +94,47 @@ export default function AboutSection() {
               <div>
                 <p className="font-mono text-xs text-[var(--accent)]">$ cat core_stack</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {["Angular", "React", "Next.js", "TypeScript", "TailwindCSS"].map((t) => (
+                  {["Angular", "React.js", "Next.js", "TypeScript", "JavaScript (ES6+)"].map((t) => (
                     <span key={t} className="terminal-chip">{t}</span>
                   ))}
                 </div>
               </div>
               <div>
-                <p className="font-mono text-xs text-[var(--accent)]">$ cat systems</p>
+                <p className="font-mono text-xs text-[var(--accent)]">$ cat ui_and_styling</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {["Design Systems", "Component Libraries", "Accessibility", "Micro-Frontends"].map((t) => (
+                  {["UX4G", "Storybook", "Tailwind CSS", "Bootstrap", "Angular Material"].map((t) => (
                     <span key={t} className="terminal-chip">{t}</span>
                   ))}
                 </div>
               </div>
               <div>
-                <p className="font-mono text-xs text-[var(--accent)]">$ cat delivery</p>
+                <p className="font-mono text-xs text-[var(--accent)]">$ cat state_management</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {["Performance Optimization", "Admin Dashboards", "Government Platforms", "CI/CD"].map((t) => (
+                  {["RxJS", "NgRx", "Angular Signals", "Redux Toolkit"].map((t) => (
+                    <span key={t} className="terminal-chip">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-mono text-xs text-[var(--accent)]">$ cat architecture</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {["Micro-Frontend", "SPA", "Design Systems", "Accessibility (WCAG 2.1)"].map((t) => (
+                    <span key={t} className="terminal-chip">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-mono text-xs text-[var(--accent)]">$ cat devops_and_tooling</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {["Git", "Docker", "Webpack", "Vite", "CI/CD", "GitHub Actions"].map((t) => (
+                    <span key={t} className="terminal-chip">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="font-mono text-xs text-[var(--accent)]">$ cat gen_ai</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {["Claude", "Codex", "ChatGPT", "AI-Driven Architecture"].map((t) => (
                     <span key={t} className="terminal-chip">{t}</span>
                   ))}
                 </div>
@@ -118,7 +142,7 @@ export default function AboutSection() {
               <div>
                 <p className="font-mono text-xs text-[var(--accent)]">$ cat domains</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  {["GovTech", "Fintech", "E-Commerce"].map((t) => (
+                  {["GovTech", "Fintech", "E-Commerce", "HealthTech"].map((t) => (
                     <span key={t} className="terminal-chip">{t}</span>
                   ))}
                 </div>

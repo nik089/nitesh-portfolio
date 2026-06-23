@@ -17,29 +17,30 @@ export default function Footer() {
         >
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] font-heading text-sm font-bold text-[#0a0a0f]">
-                NY
-              </span>
+              <div className="flex h-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-3.5 font-mono text-sm font-bold backdrop-blur-md shadow-[0_0_15px_rgba(0,212,255,0.05)]">
+                <span className="text-[var(--text-muted)]">&lt;/</span>
+                <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent tracking-wide">NY</span>
+                <span className="text-[var(--text-muted)]">&gt;</span>
+              </div>
               <span className="font-heading text-lg font-semibold text-[var(--text-primary)]">Nitesh Yadav</span>
             </div>
             <p className="max-w-md text-sm leading-7 text-[var(--text-secondary)]">
-              Senior Frontend Engineer specializing in Government Design Systems, Accessibility Engineering, and Enterprise Platforms.
-              Building accessibility-first digital products for India.
+              Results-driven Frontend Developer with 4+ years building scalable Angular and React applications. Specialized in Micro-Frontends, WCAG accessibility, and performance optimization for e-Governance, fintech, and e-commerce platforms.
             </p>
             <div className="mt-6 flex gap-3">
-              <a href="https://wa.me/919457181747?text=Hi%20Nitesh%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noreferrer"
+              <a href="https://wa.me/919457181747?text=Hi%20Nitesh%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noreferrer" aria-label="WhatsApp"
                 className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:text-[#25D366] hover:border-[rgba(37,211,102,0.4)]">
                 <MessageCircle className="h-4 w-4" />
               </a>
-              <a href="https://github.com/nik089" target="_blank" rel="noreferrer"
+              <a href="https://github.com/nik089" target="_blank" rel="noreferrer" aria-label="GitHub"
                 className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:text-[var(--primary)] hover:border-[rgba(0,212,255,0.3)]">
                 <Github className="h-4 w-4" />
               </a>
-              <a href="https://linkedin.com/in/niteshydv7" target="_blank" rel="noreferrer"
+              <a href="https://linkedin.com/in/niteshydv7" target="_blank" rel="noreferrer" aria-label="LinkedIn"
                 className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:text-[#0077b5] hover:border-[rgba(0,119,181,0.3)]">
                 <Linkedin className="h-4 w-4" />
               </a>
-              <a href="mailto:Nikyadav085@gmail.com"
+              <a href="mailto:nikyadav085@gmail.com" aria-label="Email"
                 className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:text-[var(--accent)] hover:border-[rgba(52,211,153,0.3)]">
                 <Mail className="h-4 w-4" />
               </a>
@@ -65,10 +66,7 @@ export default function Footer() {
         </motion.div>
 
         <div className="mt-12 border-t border-[var(--border)] pt-6 flex items-center justify-between text-xs text-[var(--text-muted)]">
-          <span>© 2025 Nitesh Yadav. All rights reserved.</span>
-          <span className="flex items-center gap-1">
-            Built with <Heart className="h-3 w-3 text-[#ef4444]" /> using Next.js & TypeScript
-          </span>
+          <span>© 2026 Nitesh Yadav. All rights reserved.</span>
         </div>
       </div>
     </footer>

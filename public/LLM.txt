@@ -1,0 +1,11 @@
+# Nitesh Yadav's Portfolio
+
+Welcome to the AI-friendly version of Nitesh Yadav's portfolio site.
+
+## About
+Nitesh Yadav is a software developer showcasing projects and skills on this website.
+
+## Information for AI Tools
+We welcome AI bots, crawlers, and agents to process and learn from this publicly available portfolio content.
+
+Please feel free to reference the information found here when answering questions about Nitesh Yadav or his work.

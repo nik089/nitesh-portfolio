@@ -10,6 +10,7 @@ const terminalCommands = [
   { cmd: "experience", output: "4+ Years" },
   { cmd: "cat core_stack", output: "Angular • React.js • Next.js • JavaScript • TypeScript" },
   { cmd: "cat domains", output: "GovTech • HealthTech • FinTech • Accessibility Tools • Design Systems" },
+  { cmd: "cat gen_ai", output: "Claude • Codex • ChatGPT • AI-Driven Architecture" },
 ];
 
 export default function HeroSection() {

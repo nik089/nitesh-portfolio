@@ -6,18 +6,43 @@ export const metadata: Metadata = {
   description: "Senior Frontend Developer with 4+ years building scalable, accessible, high-performance web applications. Specialist in Angular, React, Next.js, TypeScript, and Design Systems.",
   keywords: ["Frontend Developer", "Angular", "React", "TypeScript", "Next.js", "Design Systems", "Accessibility", "Portfolio"],
   authors: [{ name: "Nitesh Yadav" }],
+  creator: "Nitesh Yadav",
+  publisher: "Nitesh Yadav",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
-  },
-  other: {
-    "theme-color": "#0a0a0f",
   },
   openGraph: {
     title: "Nitesh Yadav | Senior Frontend Developer",
     description: "Building scalable, accessible, and high-performance web experiences for enterprise teams.",
     type: "website",
+    locale: "en_US",
+    siteName: "Nitesh Yadav Portfolio",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nitesh Yadav | Senior Frontend Developer",
+    description: "Building scalable, accessible, and high-performance web experiences for enterprise teams.",
+    creator: "@niteshyadav",
+  },
+};
+
+export const viewport = {
+  themeColor: "#0a0a0f",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

@@ -85,7 +85,7 @@ export default function ContactSection() {
       }
     } catch {
       // Fallback to mailto if Web3Forms API fails
-      const mailtoUrl = `mailto:Nikyadav085@gmail.com?subject=${encodeURIComponent(`Portfolio Contact from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)}`;
+      const mailtoUrl = `mailto:nikyadav085@gmail.com?subject=${encodeURIComponent(`Portfolio Contact from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`)}`;
       window.location.href = mailtoUrl;
       setIsSubmitted(true);
       setFormState({ name: "", email: "", message: "" });
@@ -129,8 +129,8 @@ export default function ContactSection() {
             className="terminal-chip hover:border-[rgba(37,211,102,0.4)] hover:bg-[rgba(37,211,102,0.05)]">
             <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />WhatsApp
           </a>
-          <a href="mailto:Nikyadav085@gmail.com" className="terminal-chip hover:border-[rgba(0,212,255,0.3)]">
-            <Mail className="h-3.5 w-3.5 text-[var(--primary)]" />Nikyadav085@gmail.com
+          <a href="mailto:nikyadav085@gmail.com" className="terminal-chip hover:border-[rgba(0,212,255,0.3)]">
+            <Mail className="h-3.5 w-3.5 text-[var(--primary)]" />nikyadav085@gmail.com
           </a>
           <a href="https://github.com/nik089" target="_blank" rel="noreferrer" className="terminal-chip hover:border-[rgba(0,212,255,0.3)]">
             <Github className="h-3.5 w-3.5 text-[var(--text-secondary)]" />GitHub
@@ -167,38 +167,38 @@ export default function ContactSection() {
             <p className="font-mono text-xs text-[var(--accent)]">$ send-message --to nitesh@nikyadav085@gmail.com</p>
 
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">$ name:</label>
+              <label className="block font-mono text-xs text-[var(--text-secondary)] mb-2">$ name:</label>
               <input
                 type="text"
                 required
                 value={formState.name}
                 onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
                 placeholder="your_name"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
             </div>
 
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">$ email:</label>
+              <label className="block font-mono text-xs text-[var(--text-secondary)] mb-2">$ email:</label>
               <input
                 type="email"
                 required
                 value={formState.email}
                 onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
                 placeholder="your@email.com"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
             </div>
 
             <div>
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">$ message:</label>
+              <label className="block font-mono text-xs text-[var(--text-secondary)] mb-2">$ message:</label>
               <textarea
                 required
                 rows={5}
                 value={formState.message}
                 onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
                 placeholder="Tell me about your project..."
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(0,212,255,0.3)] resize-none"
+                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)] resize-none"
               />
             </div>
 
@@ -210,7 +210,7 @@ export default function ContactSection() {
 
             {/* CAPTCHA */}
             <div className="space-y-2">
-              <label className="block font-mono text-xs text-[var(--text-muted)] mb-2">$ verify --human:</label>
+              <label className="block font-mono text-xs text-[var(--text-secondary)] mb-2">$ verify --human:</label>
               <div className="flex items-center gap-3">
                 <div className="captcha-container rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.04)] px-3 py-2 [&_canvas]:!rounded [&_canvas]:!bg-transparent" id="captcha-wrapper">
                   <div id="reload_href" style={{ display: "none" }} />
@@ -219,8 +219,9 @@ export default function ContactSection() {
                 <button
                   type="button"
                   onClick={reloadCaptcha}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--primary)] hover:border-[rgba(0,212,255,0.3)] transition-all"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--primary)] hover:border-[rgba(0,212,255,0.3)] transition-all"
                   title="Reload CAPTCHA"
+                  aria-label="Reload CAPTCHA"
                 >
                   <RefreshCw className="h-4 w-4" />
                 </button>
@@ -230,7 +231,7 @@ export default function ContactSection() {
                 value={captchaInput}
                 onChange={(e) => handleCaptchaChange(e.target.value)}
                 placeholder="type the captcha above"
-                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-muted)] focus:border-[rgba(0,212,255,0.3)]"
+                className="w-full rounded-lg border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-4 py-3 font-mono text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-secondary)] focus:border-[rgba(0,212,255,0.3)]"
               />
               {captchaError && (
                 <p className="flex items-center gap-1 font-mono text-xs text-red-400">

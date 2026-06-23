@@ -33,16 +33,17 @@ export default function Navbar() {
       className="fixed inset-x-0 top-0 z-50 px-4 py-3"
     >
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-5 py-3 transition-all duration-300 ${
-          isScrolled ? "glass-strong shadow-lg shadow-black/20" : "bg-transparent"
-        }`}
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-5 py-3 transition-all duration-300 ${isScrolled ? "glass-strong shadow-lg shadow-black/20" : "bg-transparent"
+          }`}
       >
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--primary)] to-[#a78bfa] font-heading text-sm font-bold text-[#0a0a0f]">
-            NY
-          </span>
-          <span className="hidden font-heading text-sm font-semibold text-[var(--text-primary)] sm:block">
+        <a href="#top" className="group flex items-center gap-3" onClick={() => setIsOpen(false)}>
+          <div className="flex h-9 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] px-3 font-mono text-sm font-bold backdrop-blur-md transition-all group-hover:border-[rgba(0,212,255,0.3)] group-hover:bg-[rgba(255,255,255,0.04)] shadow-[0_0_15px_rgba(0,212,255,0.05)]">
+            <span className="text-[var(--text-muted)]">&lt;/</span>
+            <span className="bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] bg-clip-text text-transparent tracking-wide">NY</span>
+            <span className="text-[var(--text-muted)]">&gt;</span>
+          </div>
+          <span className="hidden font-heading text-sm font-semibold text-[var(--text-primary)] transition-colors group-hover:text-[var(--primary)] sm:block">
             Nitesh Yadav
           </span>
         </a>
@@ -74,7 +75,7 @@ export default function Navbar() {
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:border-[rgba(0,119,181,0.3)] hover:text-[#0077b5]">
             <Linkedin className="h-4 w-4" />
           </a>
-          <a href="mailto:Nikyadav085@gmail.com" aria-label="Email"
+          <a href="mailto:nikyadav085@gmail.com" aria-label="Email"
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--text-muted)] transition-all hover:border-[rgba(52,211,153,0.3)] hover:text-[var(--accent)]">
             <Mail className="h-4 w-4" />
           </a>

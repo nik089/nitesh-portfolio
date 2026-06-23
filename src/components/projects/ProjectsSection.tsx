@@ -142,7 +142,7 @@ export default function ProjectsSection() {
                     <span className="terminal-dot bg-[#28c840]" />
                   </div>
                   <span className="font-mono text-xs text-[var(--text-muted)]">project_details.sh</span>
-                  <button onClick={() => setSelectedProject(null)} className="text-[var(--text-muted)] hover:text-[var(--text-primary)]">
+                  <button onClick={() => setSelectedProject(null)} aria-label="Close project details" className="text-[var(--text-muted)] hover:text-[var(--text-primary)]">
                     <X className="h-4 w-4" />
                   </button>
                 </div>
