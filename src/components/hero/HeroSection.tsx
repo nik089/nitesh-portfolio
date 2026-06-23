@@ -49,55 +49,13 @@ export default function HeroSection() {
 
   return (
     <section id="top" className="relative flex min-h-screen items-center justify-center px-6 pt-28 pb-20">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
-        {/* Left: NY Monogram */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative flex-shrink-0"
-        >
-          {/* Orbital ring */}
-          <div className="absolute inset-[-20px] animate-spin-slow rounded-full border border-dashed border-[rgba(0,212,255,0.15)]" />
-          <div className="absolute inset-[-35px] animate-spin-slow rounded-full border border-dashed border-[rgba(167,139,250,0.08)]" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
-
-          {/* Floating particles */}
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute h-1.5 w-1.5 rounded-full bg-[var(--primary)]"
-              style={{
-                top: `${20 + Math.sin(i * 1.2) * 40}%`,
-                left: `${20 + Math.cos(i * 1.2) * 40}%`,
-              }}
-              animate={{
-                opacity: [0.2, 0.8, 0.2],
-                scale: [0.8, 1.2, 0.8],
-                y: [0, -8, 0],
-              }}
-              transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.3 }}
-            />
-          ))}
-
-          {/* Main circle with glassmorphism */}
-          <div className="relative flex h-40 w-40 items-center justify-center rounded-full sm:h-48 sm:w-48">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] p-[2px] animate-spin-slow" style={{ animationDuration: "8s" }}>
-              <div className="h-full w-full rounded-full bg-[var(--bg)]" />
-            </div>
-            <div className="absolute inset-[3px] rounded-full bg-[rgba(17,17,24,0.9)] backdrop-blur-xl border border-[rgba(255,255,255,0.1)]" />
-            <div className="absolute inset-0 rounded-full shadow-[0_0_60px_rgba(0,212,255,0.2),0_0_120px_rgba(0,212,255,0.1)]" />
-            <span className="relative z-10 font-heading text-5xl font-bold bg-gradient-to-br from-[var(--primary)] via-white to-[var(--secondary)] bg-clip-text text-transparent sm:text-6xl">
-              NY
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Right: Terminal */}
+      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-12 justify-center">
+        {/* Terminal */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="w-full max-w-2xl"
+          className="w-full"
         >
           <div className="terminal-window">
             <div className="terminal-header justify-between">

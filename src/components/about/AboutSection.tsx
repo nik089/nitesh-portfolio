@@ -40,10 +40,12 @@ export default function AboutSection() {
             className="glass rounded-2xl p-7"
           >
             <div className="flex items-center gap-5">
-              {/* NY Avatar */}
-              <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--secondary)] font-heading text-2xl font-bold text-[#0a0a0f]">
-                NY
-              </div>
+              {/* Avatar */}
+              <img
+                src="/nik.png"
+                alt="Nitesh Yadav"
+                className="h-20 w-20 rounded-2xl object-cover grayscale border border-[var(--border)]"
+              />
               <div>
                 <h3 className="font-heading text-2xl font-bold text-[var(--text-primary)]">Nitesh Yadav</h3>
                 <p className="mt-1 font-mono text-sm text-[var(--primary)]">Senior Frontend Developer</p>
