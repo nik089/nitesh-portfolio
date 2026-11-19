@@ -1,7 +1,12 @@
 User-agent: *
 Allow: /
 
-# Explicitly enable crawling for AI tools
+# LLM & AI Context Directives
+# Standard llms.txt & LLM.txt files providing complete context for AI agents
+# File: /llms.txt
+# File: /LLM.txt
+
+# Explicitly enable crawling for AI tools and search engines
 User-agent: GPTBot
 Allow: /
 
@@ -15,6 +20,12 @@ User-agent: Anthropic-ai
 Allow: /
 
 User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 User-agent: CCBot
